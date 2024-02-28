@@ -57,51 +57,68 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .section {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .image-container {
   flex: 1;
   justify-content: center;
   max-height: 50vh;
 }
+
+.image-section {
+  margin-top: -80px;
+}
+
 .image-container img {
   max-width: 100%;
 }
+
 .content {
   padding: 100px;
 }
+
 .description-section {
   font-size: 1.3em;
 }
+
 .left-content {
   text-align: right;
   display: flex;
   align-items: center;
 }
+
 .logo-container img {
   max-width: 300px;
 }
+
 .right-content {
   text-align: left;
 }
+
 .team-name {
   text-align: right;
 }
+
 .form-section {
   background-color: #dda57a;
   padding: 100px;
 }
+
 .form-section h1 {
   margin-bottom: 40px;
   color: var(--vt-c-white);
 }
+
 .form-field {
   margin-bottom: 20px;
   color: var(--vt-c-white);
 }
+
 .form-field input,
 .form-field textarea {
   border: none;
@@ -109,6 +126,7 @@ main {
   background: transparent;
   width: 100%;
 }
+
 .send-button {
   background-color: var(--color-navbar-custom);
   border: none;
@@ -121,6 +139,7 @@ main {
   cursor: pointer;
   border-radius: 20px;
 }
+
 .send-button:hover {
   background-color: #36020d;
 }

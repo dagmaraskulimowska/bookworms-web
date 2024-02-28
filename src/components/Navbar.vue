@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav :class="{ navbar: true, 'navbar-transparent': transparent }">
     <div class="navbar-left">
       <router-link to="/">
         <img
@@ -7,6 +7,9 @@
           alt="Bookworms Logo"
           class="navbar-logo"
         />
+      </router-link>
+      <router-link to="/" class="navbar-link">
+        <span class="navbar-text">Bookworms</span>
       </router-link>
     </div>
     <div class="navbar-right">
@@ -20,6 +23,12 @@
 <script>
 export default {
   name: "Navbar",
+  props: {
+    transparent: {
+      type: Boolean,
+      default: true,
+    },
+  },
 };
 </script>
 
@@ -35,6 +44,11 @@ export default {
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-transparent {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-left {
@@ -50,13 +64,17 @@ export default {
 
 .navbar-right {
   text-align: right;
-  font-size: 17px;
 }
 
 .navbar-link {
   color: #fff;
   text-decoration: none;
   padding: 1rem;
+  font-size: 17px;
+}
+
+.navbar-text {
+  margin-left: -1.5rem;
 }
 
 .navbar-link:hover {
