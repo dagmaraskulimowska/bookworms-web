@@ -122,6 +122,7 @@ main {
 .form-field input,
 .form-field textarea {
   border: none;
+  outline: none;
   border-bottom: 1px solid var(--vt-c-white);
   background: transparent;
   width: 100%;
