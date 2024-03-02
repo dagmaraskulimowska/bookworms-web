@@ -19,7 +19,7 @@
         </p>
         <p>
           Możesz dodawać książki jako: przeczytane, do przeczytania oraz
-          aktulnie czytane. Wszystko w jednym miejscu.
+          aktualnie czytane. Wszystko w jednym miejscu.
         </p>
         <p>Nie masz jeszcze konta? Zachęcamy do rejestracji!</p>
         <p class="team-name">Zespół Bookworms</p>
