@@ -43,6 +43,7 @@
             name="message"
             rows="4"
             cols="50"
+            maxlength="300"
             required
           ></textarea>
         </div>
@@ -67,7 +68,7 @@ main {
 .image-container {
   flex: 1;
   justify-content: center;
-  max-height: 50vh;
+  max-height: 50%;
 }
 
 .image-section {
@@ -79,11 +80,19 @@ main {
 }
 
 .content {
-  padding: 100px;
+  padding: 10px;
+  max-width: 90%;
+  margin: auto;
 }
 
 .description-section {
-  font-size: 1.3em;
+  font-size: 20px;
+  max-width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 40px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .left-content {
@@ -93,11 +102,12 @@ main {
 }
 
 .logo-container img {
-  max-width: 300px;
+  max-width: 20vw;
 }
 
 .right-content {
   text-align: left;
+  flex-shrink: 0;
 }
 
 .team-name {
@@ -105,8 +115,8 @@ main {
 }
 
 .form-section {
-  background-color: #dda57a;
-  padding: 100px;
+  background-color: var(--color-background-custom2);
+  padding: 80px;
 }
 
 .form-section h1 {
@@ -126,6 +136,7 @@ main {
   border-bottom: 1px solid var(--vt-c-white);
   background: transparent;
   width: 100%;
+  color: var(--vt-c-white);
 }
 
 .send-button {
@@ -142,6 +153,22 @@ main {
 }
 
 .send-button:hover {
-  background-color: #36020d;
+  background-color: var(--color-button-send);
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .description-section {
+    font-size: 1em;
+    margin-right: 0;
+  }
+
+  .send-button {
+    width: 60%;
+  }
 }
 </style>

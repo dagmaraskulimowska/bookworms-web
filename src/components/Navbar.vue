@@ -80,4 +80,14 @@ export default {
 .navbar-link:hover {
   text-decoration: none;
 }
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    max-height: 80px;
+  }
+
+  .navbar-link {
+    font-size: 12px;
+  }
+}
 </style>
