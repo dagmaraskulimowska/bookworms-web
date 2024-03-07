@@ -149,6 +149,7 @@ input[type="text"] {
   outline: none;
   border-bottom: 1px solid var(--vt-c-white);
   background: transparent;
+  color: var(--vt-c-white);
 }
 
 .send-button {
