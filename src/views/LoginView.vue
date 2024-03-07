@@ -97,8 +97,10 @@ export default {
 }
 
 .content {
-  width: 50%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  max-width: 50%;
 }
 
 .image-container,
@@ -160,6 +162,7 @@ input[type="text"] {
   font-size: 15px;
   cursor: pointer;
   border-radius: 20px;
+  margin-top: 20px;
 }
 
 .send-button:hover {
@@ -183,5 +186,16 @@ input[type="text"] {
 .register-link a {
   color: var(--vt-c-white);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    display: none;
+  }
 }
 </style>

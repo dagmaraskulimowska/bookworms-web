@@ -48,7 +48,7 @@ export default {
 }
 
 .navbar-transparent {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: #6a2634ee;
 }
 
 .navbar-left {
