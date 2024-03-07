@@ -73,17 +73,49 @@
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      username: "",
-      newPassword: "",
-      confirmPassword: "",
+      postData: {
+        email: "",
+        password: "",
+        username: "",
+        newEmail: "",
+        newPassword: "",
+        confirmPassword: "",
+      },
       registerMode: false,
     };
   },
   methods: {
-    login() {},
-    register() {},
+    login() {
+      fetch("https://bookworms.fly.dev/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    },
+
+    register() {
+      fetch("https://bookworms.fly.dev/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.username,
+          email: this.newEmail,
+          password: this.newPassword,
+          password_confirmation: this.confirmPassword,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    },
     toggleRegisterMode() {
       this.registerMode = !this.registerMode;
     },
