@@ -26,24 +26,37 @@
       </div>
     </div>
     <div class="section form-section">
-      <form class="contact-form">
+      <form class="contact-form" @submit.prevent="sendContactForm">
         <h1>Masz pytania? Skontaktuj się z nami</h1>
         <div class="form-field">
-          <label for="name">Imię:</label>
-          <input type="text" id="name" name="name" required />
+          <label for="contactName">Imię:</label>
+          <input
+            type="text"
+            id="contactName"
+            name="contactName"
+            v-model="contactName"
+            required
+          />
         </div>
         <div class="form-field">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <label for="contactEmail">Email:</label>
+          <input
+            type="email"
+            id="contactEmail"
+            name="contactEmail"
+            v-model="contactEmail"
+            required
+          />
         </div>
         <div class="form-field">
-          <label for="message">Wiadomość:</label><br />
+          <label for="contactMessage">Wiadomość:</label><br />
           <textarea
-            id="message"
-            name="message"
+            id="contactMessage"
+            name="contactMessage"
             rows="4"
             cols="50"
             maxlength="300"
+            v-model="contactMessage"
             required
           ></textarea>
         </div>
@@ -52,6 +65,42 @@
     </div>
   </main>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      contactName: "",
+      contactEmail: "",
+      contactMessage: "",
+    };
+  },
+  methods: {
+    sendContactForm() {
+      fetch("https://bookworms.fly.dev/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: this.contactName,
+          email: this.contactEmail,
+          message: this.contactMessage,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response is wrong");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    },
+  },
+};
+</script>
 
 <style>
 main {
