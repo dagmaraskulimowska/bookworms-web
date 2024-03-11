@@ -8,7 +8,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/GuestNavbar.vue";
 
 const isNavbarTransparent = ref(true);
 
