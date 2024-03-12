@@ -13,15 +13,10 @@
       </router-link>
     </div>
     <div class="navbar-right">
-      <router-link v-if="loggedInUserName" to="/" class="navbar-link">
-        <span>Witaj, {{ loggedInUserName }}</span>
+      <router-link to="/" class="navbar-link">
+        <span>Twój profil</span>
       </router-link>
-      <button v-if="loggedInUserName" @click="logout" class="navbar-link">
-        Wyloguj
-      </button>
-      <router-link v-else to="/login" class="navbar-link"
-        >Zaloguj się</router-link
-      >
+      <button @click="logout" class="navbar-link navbar-button">Wyloguj</button>
     </div>
   </nav>
 </template>
@@ -66,4 +61,16 @@ export default {
 
 <style>
 @import "@/assets/navbar-styles.css";
+
+.navbar-button {
+  background-color: var(--color-navbar-custom);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.navbar-button:hover {
+  background-color: rgba(74, 28, 36, 0.7);
+}
 </style>
