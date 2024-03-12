@@ -13,7 +13,7 @@
       </router-link>
     </div>
     <div class="navbar-right">
-      <router-link to="/" class="navbar-link">
+      <router-link to="/profile" class="navbar-link">
         <span>Twój profil</span>
       </router-link>
       <button @click="logout" class="navbar-link navbar-button">Wyloguj</button>
