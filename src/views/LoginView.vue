@@ -99,7 +99,10 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           localStorage.setItem("token", data.access_token);
+          localStorage.setItem("loggedInUserName", this.username);
           console.log(data);
+          this.$router.push("/");
+          //window.location.reload();
         });
     },
 

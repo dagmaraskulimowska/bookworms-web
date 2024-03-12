@@ -13,20 +13,52 @@
       </router-link>
     </div>
     <div class="navbar-right">
-      <router-link to="/profile" class="navbar-link">
+      <router-link v-if="loggedInUserName" to="/" class="navbar-link">
         <span>Witaj, {{ loggedInUserName }}</span>
       </router-link>
+      <button v-if="loggedInUserName" @click="logout" class="navbar-link">
+        Wyloguj
+      </button>
+      <router-link v-else to="/login" class="navbar-link"
+        >Zaloguj się</router-link
+      >
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
+  name: "UserNavbar",
   props: {
     transparent: {
       type: Boolean,
       default: true,
+    },
+  },
+  computed: {
+    loggedInUserName() {
+      return localStorage.getItem("loggedInUserName");
+    },
+  },
+  methods: {
+    logout() {
+      fetch("https://bookworms.fly.dev/api/logout", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            localStorage.removeItem("loggedInUserName");
+            localStorage.removeItem("token");
+            this.$router.push("/");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     },
   },
 };
