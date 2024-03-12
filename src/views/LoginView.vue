@@ -101,7 +101,7 @@ export default {
           localStorage.setItem("token", data.access_token);
           console.log(data);
           this.$router.push("/");
-          //window.location.reload();
+          window.location.reload();
         });
     },
 

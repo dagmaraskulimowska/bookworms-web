@@ -48,7 +48,7 @@ export default {
           if (response.ok) {
             localStorage.removeItem("loggedInUserName");
             localStorage.removeItem("token");
-            this.$router.push("/");
+            window.location.reload();
           }
         })
         .catch((error) => {
