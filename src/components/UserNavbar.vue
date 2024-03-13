@@ -11,6 +11,11 @@
       <router-link to="/" class="navbar-link">
         <span class="navbar-text">Bookworms</span>
       </router-link>
+      <input
+        type="text"
+        placeholder="Wyszukaj książkę..."
+        class="search-input"
+      />
     </div>
     <div class="navbar-right">
       <div class="navbar-link" @click="toggleDropdown">
@@ -115,6 +120,18 @@ export default {
   text-decoration: none;
 }
 
+.search-input {
+  background-color: var(--color-background-custom);
+  padding: 0.4rem;
+  border: none;
+  border-radius: 12px;
+  width: 15rem;
+  margin: 0 auto;
+  flex: 1;
+  outline: none;
+  margin: 1rem;
+}
+
 .logout-button {
   background-color: var(--color-navbar-custom);
   border: none;
@@ -123,6 +140,7 @@ export default {
   cursor: pointer;
   color: var(--white);
 }
+
 .send-button:hover {
   background-color: var(--color-button-send);
 }
@@ -131,6 +149,12 @@ export default {
   .logout-button {
     font-size: 12px;
     padding: 0.4rem 1rem;
+  }
+
+  .search-input {
+    width: 10rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
   }
 }
 </style>
