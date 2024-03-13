@@ -13,10 +13,29 @@
       </router-link>
     </div>
     <div class="navbar-right">
-      <router-link to="/profile" class="navbar-link">
-        <span>Twój profil</span>
-      </router-link>
-      <button @click="logout" class="navbar-link navbar-button">Wyloguj</button>
+      <div class="navbar-link" @click="toggleDropdown">
+        <span>Moje konto</span>
+        <ul v-if="dropdownOpen" class="dropdown-menu">
+          <li>
+            <router-link to="/profile" class="dropdown-link"
+              >Mój profil</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/settings" class="dropdown-link"
+              >Ustawienia</router-link
+            >
+          </li>
+          <li>
+            <router-link to="/stats" class="dropdown-link"
+              >Moje statystyki</router-link
+            >
+          </li>
+          <li>
+            <button @click="logout" class="logout-button">Wyloguj się</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
@@ -30,12 +49,15 @@ export default {
       default: true,
     },
   },
-  computed: {
-    loggedInUserName() {
-      return localStorage.getItem("loggedInUserName");
-    },
+  data() {
+    return {
+      dropdownOpen: false,
+    };
   },
   methods: {
+    toggleDropdown() {
+      this.dropdownOpen = !this.dropdownOpen;
+    },
     logout() {
       fetch("https://bookworms.fly.dev/api/logout", {
         method: "POST",
@@ -62,15 +84,47 @@ export default {
 <style>
 @import "@/assets/navbar-styles.css";
 
-.navbar-button {
-  background-color: var(--color-navbar-custom);
-  border: none;
+.dropdown-menu {
+  position: absolute;
+  background-color: var(--color-background-custom);
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  box-shadow: 0 7px 5px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  right: 5px;
 }
 
-.navbar-button:hover {
-  background-color: rgba(74, 28, 36, 0.7);
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropdown-menu li:hover {
+  background-color: rgba(240, 240, 240, 0.2);
+}
+
+.dropdown-link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.logout-button {
+  background-color: var(--color-navbar-custom);
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 15px;
+}
+.send-button:hover {
+  background-color: var(--color-button-send);
 }
 </style>
