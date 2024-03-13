@@ -119,12 +119,18 @@ export default {
   background-color: var(--color-navbar-custom);
   border: none;
   border-radius: 15px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.5rem;
   cursor: pointer;
   color: var(--white);
-  font-size: 15px;
 }
 .send-button:hover {
   background-color: var(--color-button-send);
+}
+
+@media (max-width: 768px) {
+  .logout-button {
+    font-size: 12px;
+    padding: 0.4rem 1rem;
+  }
 }
 </style>
