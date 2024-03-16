@@ -33,6 +33,7 @@ export default {
         name: "Nixanea",
         description:
           "Bookworms to super miejsce. Mam nadzieję, że będę się tutaj świetnie bawić :)",
+        image: "",
       },
     };
   },
@@ -44,14 +45,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10rem;
-  padding: 8rem;
-  margin-left: 25rem;
-  margin-right: 25rem;
-  border-radius: 30px;
+  margin-top: 8vw;
+  padding: 6vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+  border-radius: 2.5vw;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
-
 .profile-info {
   display: flex;
   align-items: flex-start;
@@ -59,17 +60,19 @@ export default {
 }
 
 .profile-image {
-  margin-right: 40px;
+  margin-right: 4rem;
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
+  min-width: 10rem;
+  background-color: #ccc;
 }
 
 .profile-image img {
-  width: 10rem;
-  height: 10rem;
+  width: 100%;
+  height: auto;
   border-radius: 50%;
 }
 
@@ -88,23 +91,69 @@ export default {
 
 .categories {
   display: flex;
-  margin-top: 100px;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2vw;
 }
 
 .categories a {
   text-decoration: none;
   color: #333;
-  padding: 1rem 4rem;
+  padding: 0.8vw 3vw;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 40px;
-}
-
-.categories a:last-child {
-  margin-right: 0;
+  border-radius: 1vw;
+  margin-right: 1vw;
 }
 
 .categories a:hover {
   background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    padding: 4vw;
+    max-width: 80vw;
+  }
+
+  .profile-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-name {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .profile-image {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 7rem;
+    height: 7rem;
+    min-width: 7rem;
+    background-size: cover;
+  }
+
+  .profile-description {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vw;
+  }
+
+  .categories a {
+    margin-bottom: 2vw;
+    padding: 2vw 3vw;
+    border-radius: 3vw;
+    height: 10vw;
+    width: 40vw;
+    text-align: center;
+  }
 }
 </style>
