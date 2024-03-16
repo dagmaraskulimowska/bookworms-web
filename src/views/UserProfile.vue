@@ -51,7 +51,7 @@ export default {
   left: 0;
   width: 100%;
   height: 70%;
-  background-image: url("@/assets/bookwormsuserprofile.jpg");
+  background-image: url("@/assets/photos/bookwormsuserprofile.jpg");
   background-size: cover;
   background-position: center;
   z-index: -1;

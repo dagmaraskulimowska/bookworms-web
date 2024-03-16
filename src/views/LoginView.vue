@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content">
       <div class="image-container">
-        <img src="@/assets/loginwithbooks.jpg" alt="Obrazek" />
+        <img src="@/assets/photos/loginwithbooks.jpg" alt="Obrazek" />
       </div>
       <div class="form-container" v-if="!registerMode">
         <h2>Zaloguj się</h2>
