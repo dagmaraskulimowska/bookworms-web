@@ -45,6 +45,11 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 10rem;
+  padding: 8rem;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  border-radius: 30px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .profile-info {
@@ -54,11 +59,10 @@ export default {
 }
 
 .profile-image {
-  margin-right: 20px;
+  margin-right: 40px;
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  background-color: #ccc;
   background-size: cover;
   background-position: center;
 }
