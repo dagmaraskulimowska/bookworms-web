@@ -1,27 +1,31 @@
 <template>
-  <div class="profile">
-    <div class="profile-info">
-      <div
-        class="profile-image"
-        :style="{
-          backgroundImage: user.image ? 'url(' + user.image + ')' : 'none',
-          backgroundColor: user.image ? 'transparent' : '#ccc',
-        }"
-      >
-        <div v-if="!user.image" class="placeholder"></div>
-      </div>
-      <div class="profile-description">
-        <h2 class="user-name">{{ user.name }}</h2>
-        <div class="description-container">
-          <p>{{ user.description }}</p>
+  <div>
+    <div class="profile">
+      <div class="profile-info">
+        <div
+          class="profile-image"
+          :style="{
+            backgroundImage: user.image ? 'url(' + user.image + ')' : '#ccc',
+            backgroundColor: user.image ? 'transparent' : '#ccc',
+          }"
+        >
+          <div v-if="!user.image" class="placeholder"></div>
+        </div>
+        <div class="profile-description">
+          <h2 class="user-name">{{ user.name }}</h2>
+          <div class="description-container">
+            <p>{{ user.description }}</p>
+          </div>
         </div>
       </div>
+      <div class="categories">
+        <a href="/bookslist">Przeczytane</a>
+        <a href="/bookslist">Aktualnie czytane</a>
+        <a href="/bookslist">Chcę przeczytać</a>
+      </div>
     </div>
-    <div class="categories">
-      <a href="/bookslist">Przeczytane</a>
-      <a href="/bookslist">Aktualnie czytane</a>
-      <a href="/bookslist">Chcę przeczytać</a>
-    </div>
+    <div class="background-image-container"></div>
+    <div class="background-container"></div>
   </div>
 </template>
 
@@ -41,6 +45,39 @@ export default {
 </script>
 
 <style scoped>
+.background-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background-image: url("@/assets/bookwormsuserprofile.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.background-container {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: #f8eed8;
+  z-index: -1;
+}
+
+.background-image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fcf7ec00 30%, #f8eed8 100%);
+  z-index: 1;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -50,13 +87,16 @@ export default {
   margin-left: auto;
   margin-right: auto;
   max-width: 60rem;
-  border-radius: 2.5vw;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+  border-radius: 2vw;
+  box-shadow: 10px 10px 20px #00000066;
+  background-color: var(--color-background-custom);
 }
+
 .profile-info {
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .profile-image {
@@ -113,6 +153,7 @@ export default {
   .profile {
     padding: 4vw;
     max-width: 80vw;
+    margin-top: 30vw;
   }
 
   .profile-info {

@@ -146,7 +146,7 @@ export default {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 20px #00000066;
 }
 
 .image-container img {
