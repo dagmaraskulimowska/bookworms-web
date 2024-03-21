@@ -30,8 +30,62 @@
             <button type="submit" class="send-button">Zastosuj</button>
           </form>
         </div>
-        <div v-else-if="selectedTab === 'Zmień email'"></div>
-        <div v-else-if="selectedTab === 'Zmień hasło'"></div>
+
+        <div v-if="selectedTab === 'Zmień email'">
+          <form @submit.prevent="changeEmail">
+            <div class="form-group">
+              <label for="email">Obecny adres email:</label>
+              <input type="email" id="email" v-model="email" required />
+            </div>
+            <div class="form-group">
+              <label for="newEmail">Nowy adres email:</label>
+              <input type="email" id="newEmail" v-model="newEmail" required />
+            </div>
+            <div class="form-group">
+              <label for="confirmEmail">Potwierdź adres email:</label>
+              <input
+                type="email"
+                id="confirmEmail"
+                v-model="confirmEmail"
+                required
+              />
+            </div>
+            <button type="submit" class="send-button">Zastosuj</button>
+          </form>
+        </div>
+
+        <div v-else-if="selectedTab === 'Zmień hasło'">
+          <form @submit.prevent="changePassword">
+            <div class="form-group">
+              <label for="password">Obecne hasło:</label>
+              <input
+                type="password"
+                id="oldPassword"
+                v-model="oldPassword"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">Nowe hasło: </label>
+              <input
+                type="password"
+                id="newPassword"
+                v-model="newEmail"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Potwierdź hasło:</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                v-model="confirmPassword"
+                required
+              />
+            </div>
+            <button type="submit" class="send-button">Zastosuj</button>
+          </form>
+        </div>
         <div v-else-if="selectedTab === 'Usuń konto'"></div>
       </div>
     </div>
