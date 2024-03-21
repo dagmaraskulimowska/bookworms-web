@@ -149,15 +149,18 @@ export default {
   box-shadow: 10px 10px 20px #00000066;
 }
 
-.image-container img {
+.image-container {
   height: 100%;
   object-fit: cover;
+  border-radius: 2vw 0 0 2vw;
+  overflow: hidden;
 }
 
 .form-container {
   padding: 60px;
   background-color: var(--color-background-custom2);
   max-width: 50%;
+  border-radius: 0 2vw 2vw 0;
 }
 
 .form-container h2 {

@@ -143,6 +143,7 @@ export default {
   border: 1px solid #ccc;
   border-radius: 1vw;
   margin-right: 1vw;
+  cursor: pointer;
 }
 
 .categories a:hover {
