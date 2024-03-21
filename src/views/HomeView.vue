@@ -2,7 +2,10 @@
   <main>
     <div class="section image-section">
       <div class="image-container">
-        <img src="@/assets/booksforhomepage.jpg" alt="booksforhomepage" />
+        <img
+          src="@/assets/photos/booksforhomepage.jpg"
+          alt="booksforhomepage"
+        />
       </div>
     </div>
     <div class="section description-section">

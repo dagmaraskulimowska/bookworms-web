@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content">
       <div class="image-container">
-        <img src="@/assets/loginwithbooks.jpg" alt="Obrazek" />
+        <img src="@/assets/photos/loginwithbooks.jpg" alt="Obrazek" />
       </div>
       <div class="form-container" v-if="!registerMode">
         <h2>Zaloguj się</h2>
@@ -146,7 +146,7 @@ export default {
   min-width: 300px;
   display: flex;
   flex-direction: column;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 20px #00000066;
 }
 
 .image-container img {
