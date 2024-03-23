@@ -23,6 +23,7 @@ onMounted(() => {
   isLoggedIn.value = !!localStorage.getItem("token");
 
   window.addEventListener("scroll", handleScroll);
+  document.title = "Bookworms";
 });
 
 onUnmounted(() => {
