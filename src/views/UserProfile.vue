@@ -12,7 +12,7 @@
           <div v-if="!user.image" class="placeholder"></div>
         </div>
         <div class="profile-description">
-          <h2 class="user-name">{{ user.name }}</h2>
+          <h2 class="user-name">{{ username }}</h2>
           <div class="description-container">
             <p>{{ user.description }}</p>
           </div>
@@ -34,12 +34,39 @@ export default {
   data() {
     return {
       user: {
-        name: "Nixanea",
-        description:
-          "Bookworms to super miejsce. Mam nadzieję, że będę się tutaj świetnie bawić :)",
+        description: "",
         image: "",
       },
+      username: "",
     };
+  },
+  mounted() {
+    this.fetchUserData();
+  },
+  methods: {
+    fetchUserData() {
+      fetch("https://bookworms.fly.dev/api/user", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Failed to fetch user data");
+          }
+        })
+        .then((data) => {
+          this.user = data;
+          this.username = data.name;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
   },
 };
 </script>
@@ -97,6 +124,7 @@ export default {
   align-items: flex-start;
   margin-bottom: 20px;
   margin-top: 10px;
+  width: 90%;
 }
 
 .profile-image {
@@ -118,6 +146,7 @@ export default {
 
 .profile-description {
   max-width: 40rem;
+  flex-grow: 1;
 }
 
 .user-name {
@@ -139,7 +168,7 @@ export default {
 .categories a {
   text-decoration: none;
   color: #333;
-  padding: 0.8vw 3vw;
+  padding: 0.8vw 2vw;
   border: 1px solid #ccc;
   border-radius: 1vw;
   margin-right: 1vw;

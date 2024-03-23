@@ -19,7 +19,7 @@
     </div>
     <div class="navbar-right">
       <div class="navbar-link" @click="toggleDropdown">
-        <span>Moje konto</span>
+        <span>{{ username }}</span>
         <ul v-if="dropdownOpen" class="dropdown-menu">
           <li>
             <router-link to="/profile" class="dropdown-link"
@@ -57,7 +57,11 @@ export default {
   data() {
     return {
       dropdownOpen: false,
+      username: "",
     };
+  },
+  mounted() {
+    this.fetchUsername();
   },
   methods: {
     toggleDropdown() {
@@ -77,6 +81,28 @@ export default {
             localStorage.removeItem("token");
             window.location.reload();
           }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    },
+    fetchUsername() {
+      fetch("https://bookworms.fly.dev/api/user", {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Failed to get username");
+          }
+        })
+        .then((data) => {
+          this.username = data.name;
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -106,7 +132,7 @@ export default {
 }
 
 .dropdown-menu li {
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
   text-align: center;
 }
