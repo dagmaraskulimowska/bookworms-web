@@ -24,8 +24,7 @@
         <a href="/bookslist">Chcę przeczytać</a>
       </div>
     </div>
-    <div class="background-image-container"></div>
-    <div class="background-container"></div>
+    <div class="background-image"></div>
   </div>
 </template>
 
@@ -72,36 +71,25 @@ export default {
 </script>
 
 <style scoped>
-.background-image-container {
+.background-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 70%;
-  background-image: url("@/assets/photos/bookwormsuserprofile.jpg");
+  height: 100%;
+  z-index: -1;
+  background: url("@/assets/photos/bookwormsuserprofile.jpg") center;
   background-size: cover;
-  background-position: center;
-  z-index: -1;
 }
 
-.background-container {
-  position: absolute;
-  top: 70%;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  background-color: #f8eed8;
-  z-index: -1;
-}
-
-.background-image-container::before {
+.background-image::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #fcf7ec00 30%, #f8eed8 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   z-index: 1;
 }
 

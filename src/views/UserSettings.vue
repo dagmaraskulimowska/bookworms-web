@@ -10,7 +10,7 @@
         {{ tab }}
       </div>
     </div>
-     <div class="background-image"></div>
+    <div class="background-image"></div>
     <div v-if="selectedTab">
       <div class="settings-container">
         <div v-if="selectedTab === 'Zmień opis'">
@@ -158,13 +158,13 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -1;
   background: url("@/assets/photos/usersettings.jpg") center;
   background-size: cover;
 }
 
 .background-image::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -212,6 +212,7 @@ textarea {
   height: 100px;
   max-height: 100px;
   max-width: 500px;
+  min-width: 300px;
 }
 
 .send-button {
@@ -233,7 +234,7 @@ textarea {
 .tab:hover {
   background-color: var(--color-button-send);
   cursor: pointer;
-   border: 1px solid var(--color-button-send);
+  border: 1px solid var(--color-button-send);
   color: white;
 }
 
@@ -245,7 +246,6 @@ textarea {
   margin-top: 8vw;
   margin-left: 5vw;
   width: 20vw;
-   z-index: 1;
 }
 
 .tab {
@@ -261,7 +261,6 @@ textarea {
   background-color: var(--color-background-custom);
   box-shadow: 5px 5px 10px #00000066;
 }
-
 
 .settings-container {
   position: absolute;
