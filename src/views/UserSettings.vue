@@ -12,6 +12,36 @@
     </div>
     <div v-if="selectedTab">
       <div class="settings-container">
+        <div v-if="selectedTab === 'Zmień opis'">
+          <form @submit.prevent="changeDescription">
+            <div class="form-group">
+              <label for="description">Wprowadź opis:</label>
+              <textarea
+                id="description"
+                v-model="description"
+                maxlength="100"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="send-button">Zastosuj</button>
+          </form>
+        </div>
+
+        <div v-if="selectedTab === 'Zmień zdjęcie'">
+          <form @submit.prevent="uploadPhoto">
+            <div class="form-group">
+              <label for="photo">Wybierz zdjęcie profilowe:</label>
+              <input
+                type="file"
+                id="photo"
+                @change="handlePhotoUpload"
+                required
+              />
+            </div>
+            <button type="submit" class="send-button">Zastosuj</button>
+          </form>
+        </div>
+
         <div v-if="selectedTab === 'Zmień nazwę'">
           <form @submit.prevent="changeName">
             <div class="form-group">
@@ -96,7 +126,14 @@
 export default {
   data() {
     return {
-      tabs: ["Zmień nazwę", "Zmień email", "Zmień hasło", "Usuń konto"],
+      tabs: [
+        "Zmień opis",
+        "Zmień zdjęcie",
+        "Zmień nazwę",
+        "Zmień email",
+        "Zmień hasło",
+        "Usuń konto",
+      ],
       selectedTab: null,
     };
   },
@@ -137,6 +174,23 @@ input[type="password"] {
   color: var(--vt-c-white);
 }
 
+input[type="file"] {
+  padding: 6px;
+  margin-top: 2vw;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--vt-c-white);
+  background: transparent;
+  width: 100%;
+  color: var(--vt-c-white);
+  height: 100px;
+  max-height: 100px;
+  max-width: 500px;
+}
+
 .send-button {
   background-color: var(--color-navbar-custom);
   border: none;
@@ -149,6 +203,7 @@ input[type="password"] {
   cursor: pointer;
   border-radius: 20px;
   margin-top: 30px;
+  width: 150px;
 }
 
 .send-button:hover {
@@ -157,10 +212,12 @@ input[type="password"] {
 
 .categories {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   margin-top: 8vw;
+  margin-left: 5vw;
+  width: 20vw;
 }
 
 .tab {
@@ -169,7 +226,10 @@ input[type="password"] {
   padding: 0.7vw 2vw;
   border: 1px solid #ccc;
   border-radius: 1vw;
-  margin-right: 1vw;
+  margin-bottom: 2vw;
+  width: 10vw;
+  height: 2.5vw;
+  text-align: center;
 }
 
 .tab:hover {
@@ -178,16 +238,18 @@ input[type="password"] {
 }
 
 .settings-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3vw;
   padding: 6vw;
-  margin-left: auto;
-  margin-right: auto;
   max-width: 40rem;
   border-radius: 2vw;
   box-shadow: 10px 10px 20px #00000066;
   background-color: var(--color-background-custom2);
+  width: 600px;
 }
 </style>
