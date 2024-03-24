@@ -10,6 +10,7 @@
         {{ tab }}
       </div>
     </div>
+     <div class="background-image"></div>
     <div v-if="selectedTab">
       <div class="settings-container">
         <div v-if="selectedTab === 'Zmień opis'">
@@ -151,6 +152,28 @@ export default {
   flex-direction: column;
 }
 
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: url("@/assets/photos/usersettings.jpg") center;
+  background-size: cover;
+}
+
+.background-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
 .form-container h2 {
   margin: 0 auto;
   margin-bottom: 60px;
@@ -206,8 +229,12 @@ textarea {
   width: 150px;
 }
 
-.send-button:hover {
+.send-button:hover,
+.tab:hover {
   background-color: var(--color-button-send);
+  cursor: pointer;
+   border: 1px solid var(--color-button-send);
+  color: white;
 }
 
 .categories {
@@ -218,6 +245,7 @@ textarea {
   margin-top: 8vw;
   margin-left: 5vw;
   width: 20vw;
+   z-index: 1;
 }
 
 .tab {
@@ -230,12 +258,10 @@ textarea {
   width: 10vw;
   height: 2.5vw;
   text-align: center;
+  background-color: var(--color-background-custom);
+  box-shadow: 5px 5px 10px #00000066;
 }
 
-.tab:hover {
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
 
 .settings-container {
   position: absolute;
