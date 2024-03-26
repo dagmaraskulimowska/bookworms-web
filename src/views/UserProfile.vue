@@ -164,7 +164,10 @@ export default {
 }
 
 .categories a:hover {
-  background-color: #f0f0f0;
+  background-color: var(--color-button-send);
+  cursor: pointer;
+  border: 1px solid var(--color-button-send);
+  color: white;
 }
 
 @media (max-width: 768px) {

@@ -255,8 +255,8 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 1vw;
   margin-bottom: 2vw;
-  width: 10vw;
-  height: 2.5vw;
+  max-width: 200px;
+  min-width: 200px;
   text-align: center;
   background-color: var(--color-background-custom);
   box-shadow: 5px 5px 10px #00000066;
@@ -275,6 +275,33 @@ textarea {
   border-radius: 2vw;
   box-shadow: 10px 10px 20px #00000066;
   background-color: var(--color-background-custom2);
-  width: 600px;
+  width: 500vw;
+}
+
+@media only screen and (max-width: 1280px) {
+  .categories {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    margin-top: 30px;
+    margin-left: 0;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .tab {
+    margin-right: 10px;
+    margin-bottom: 0;
+    min-width: 150px;
+    margin-left: 40px;
+    border-radius: 10px;
+    padding: 10px 2vw;
+  }
+
+  .settings-container {
+    width: 90%;
+    border-radius: 20px;
+  }
 }
 </style>
